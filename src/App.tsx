@@ -27,10 +27,18 @@ const App: React.FunctionComponent = (): JSX.Element => {
 
   return <div>
     <h1>Multi Check Component</h1>
+    {/* you can use values + onChange */}
     <MultiCheck label='my-multi-check' options={options}
-                onChange={onSelectedOptionsChange}
-                values={selectedValues}
-                columns={2}/>
+      onChange={onSelectedOptionsChange}
+      values={selectedValues}
+      columns={4}
+    />
+    {/* you can also use defaultValues ——————values is Controlled，but defaultValues is not so. */}
+    {/* <MultiCheck label='my-multi-check' options={options}
+      onChange={onSelectedOptionsChange}
+      defaultValues={selectedValues} 
+      columns={4}
+    /> */}
     <div>
       <h2>Current selected values:</h2>
       <div>{selectedValues.join(',')}</div>
