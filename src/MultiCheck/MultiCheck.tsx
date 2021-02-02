@@ -35,7 +35,7 @@ const MULTICHECK_SELECTED_ALL_OPTION = {
   value: MULTICHECK_SELECTED_ALL
 }
 
-const MultiCheck: React.FunctionComponent<Props> = (props): JSX.Element => {
+const MultiCheck: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const { label, options, columns = 1, values, defaultValues, onChange } = props;
   
   // State
@@ -65,7 +65,7 @@ const MultiCheck: React.FunctionComponent<Props> = (props): JSX.Element => {
       if(currentValues.length === options.length){
         currentValues = [];
       }else{
-        currentValues = options.map(option => option.value);
+        currentValues = options.map((option: Option) => option.value);
       }
     }else{
       const valueKey = currentValues.indexOf(value);
@@ -75,9 +75,9 @@ const MultiCheck: React.FunctionComponent<Props> = (props): JSX.Element => {
         currentValues.splice(valueKey, 1);
       }
     }
-    currentValues.forEach(selectedOptionValue=>{
+    currentValues.forEach((selectedOptionValue: string)=>{
       if(selectedOptionValue !== MULTICHECK_SELECTED_ALL){
-        const findOne = options.find(option=>option.value === selectedOptionValue);
+        const findOne = options.find((option: Option)=>option.value === selectedOptionValue);
         if(findOne){
           currentSelectedOptions.push(findOne);
         }
